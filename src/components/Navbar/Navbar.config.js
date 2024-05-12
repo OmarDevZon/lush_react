@@ -7,7 +7,7 @@ export const menuItems = [
   { name: "About Us", link: "#about-us", icon: "" },
   { name: "Contact Us", link: "#contact-us", icon: "" },
 ];
-
+// 
 export const UseOpenAndClose = () => {
   const [isOpen, setIsOpen] = useState(false);
 

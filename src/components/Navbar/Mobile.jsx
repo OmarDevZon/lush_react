@@ -18,8 +18,9 @@ const Mobile = ({ isOpen, close }) => {
         <ul className="mt-4">
           {menuItems.map((menuItem, index) => (
             <li key={index} className="py-[1px] px-5">
+             
               <a
-                to={menuItem.link}
+                href={menuItem.link}
                 onClick={close}
                 className="text-[#95979d] hover:text-[#3F4044] py-2 w-full px-1 rounded-sm block hover:bg-gray-100"
               >
