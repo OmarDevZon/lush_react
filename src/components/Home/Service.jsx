@@ -81,8 +81,16 @@ export const Service = () => {
       <h2 key={"Services"} className="title mt-10">
         Our Services
       </h2>
+      <p key={"Services"} className="p mt-4">
+        Lush Constructions stands at the forefront of the Australian
+        construction industry. Our mission is clear – to deliver unparalleled
+        quality in every nail driven and brick laid. From cosy homes to
+        sprawling corporate offices, city councils and government projects, we
+        bring dreams to life through meticulous craftmanship and dedicated
+        services.
+      </p>
 
-      <div className="text-white  grid md:grid-cols-3 grid-cols-1 md:gap-10 gap-3 mt-20">
+      <div className="text-white  grid md:grid-cols-3 grid-cols-1 md:gap-10 gap-3 mt-8">
         {serviceContent.map((item, i) => (
           <div className="" key={item.alt}>
             <Scale>
@@ -107,6 +115,24 @@ export const Service = () => {
           </div>
         ))}
       </div>
+
+      <p className="p mt-4">
+        <p className="p font-bold"> ALL ASPECTS OF BUILDING AND CARPENTRY</p>
+        <p className="p">- Restorations / Alterations</p>
+        - Extensions / Additions <br />
+        - Granny flats <br />
+        - New builds
+        <br />
+        - Shop and office fit outs <br />
+        - Roofing <br />
+        - Kitchens / Bathrooms
+        <br />
+        - Remedial works
+        <br />
+        - Decks / Fences / Pergolas
+        <br />
+        - Doors / Stairs / Flooring <br />
+      </p>
     </div>
   );
 };
