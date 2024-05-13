@@ -1,18 +1,15 @@
 export const ContactUs = () => {
   return (
     <div className="sp" id="contact-us">
-      <h2 className="title">Contact Us</h2>
-      <h3 className="title2 my-10">WE ARE JUST A PHONE CALL AWAY!</h3>
+      <h2 className="title mt-10">Contact Us</h2>
+      <h3 className="title2 my-4">WE ARE JUST A PHONE CALL AWAY!</h3>
 
-      <h2 key="lushconstructions" className="p">
-        - Email: contact@lushconstructions.com || info@lushconstructions.com
-      </h2>
-      <p className="p">- Phone: 0404 289 437</p>
-      <p className="p">- Address: PO BOX 821 Marrickville, NSW 2204</p>
-
-      <p className="p mt-10">- ABN: 99 652 947 528</p>
-      <p className="p">- ACN: 141 565 746</p>
-      <p className="p">- License Number: TBD</p>
+      <h2 className="p">- Email: info@lushconstructions.com</h2>
+      <h2 className="p">- Phone: 0404 289 437</h2>
+      <h2 className="p">- Address: PO BOX 821 Marrickville, NSW 1475</h2>
+      <h2 className="p">- ACN: 141 565 746</h2>
+      <h2 className="p">- ACN: 141 565 746</h2>
+      <p className="p">- License Number: 463253C</p>
 
       {/* socle  icon  */}
 
