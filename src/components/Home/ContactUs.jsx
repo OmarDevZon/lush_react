@@ -8,7 +8,6 @@ export const ContactUs = () => {
       <h2 className="p">- Phone: 0404 289 437</h2>
       <h2 className="p">- Address: PO BOX 821 Marrickville, NSW 1475</h2>
       <h2 className="p">- ACN: 141 565 746</h2>
-      <h2 className="p">- ACN: 141 565 746</h2>
       <p className="p">- License Number: 463253C</p>
 
       {/* socle  icon  */}
