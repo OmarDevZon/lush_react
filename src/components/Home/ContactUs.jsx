@@ -1,4 +1,35 @@
+import { useForm } from "react-hook-form";
+import toast, { Toaster } from "react-hot-toast";
+
+// /
 export const ContactUs = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = async (data) => {
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "bc2146c3-49f1-49e4-b202-7b4919700c38",
+          ...data,
+        }),
+      });
+      // const result = await response.json();
+      if (response.ok) {
+        toast.success("Message sent successfully!");
+      } else {
+        toast.error("Failed to send message.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
   return (
     <div className="sp" id="contact-us">
       <h2 className="title mt-10">Contact Us</h2>
@@ -42,50 +73,62 @@ export const ContactUs = () => {
       <div className=" md:flex gap-10  mt-10 items-end">
         <div className="md:w-1/2">
           <h3 className="title2">GET IN TOUCH</h3>
-          <form
-            action="https://api.web3forms.com/submit"
-            method="POST"
-            className="md:mt-28 mt-12 "
-          >
-            <div className="">
-              <input
-                type="hidden"
-                name="access_key"
-                value="a99ac5a8-4ff7-4500-80ca-fc44b389460b"
-              />
 
+          <form onSubmit={handleSubmit(onSubmit)} className="md:mt-28 mt-12">
+            <div className="">
               <div className="flex gap-4 items-center">
-                <input
-                  className="placeholder:text-md placeholder:text-base py-2 text-white border-b-2 border-[#c9c9c9] focus:border-[#f2849e]"
-                  type="text"
-                  name="name"
-                  id="name"
-                  placeholder="Name"
-                />
-                <input
-                  className="placeholder:text-md  placeholder:text-base py-2 border-b-2 text-white border-[#c9c9c9]  focus:border-[#f2849e]"
-                  type="email"
-                  name="email"
-                  id="email"
-                  placeholder="Email"
-                />
-              </div>
-              <div className=""></div>
-              <div className="">
-                <div className=" mt-4">
-                  <textarea
-                    className="placeholder:text-md  placeholder:text-base py-2 border-b-2 text-white border-[#c9c9c9]  focus:border-[#f2849e]"
+                <div className="w-full">
+                  <input
+                    className="placeholder:text-md placeholder:text-base p-2 text-white border-b-2 border-[#c9c9c9] focus:border-[#f2849e]"
                     type="text"
+                    name="name"
+                    placeholder="Name"
+                    {...register("name", { required: "Name is required" })}
+                  />
+                  {errors.name && (
+                    <p className="text-red-500">{errors.name.message}</p>
+                  )}
+                </div>
+                <div className="w-full">
+                  <input
+                    className="placeholder:text-md placeholder:text-base p-2 border-b-2 text-white border-[#c9c9c9] focus:border-[#f2849e]"
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    {...register("email", {
+                      required: "Email is required",
+                      pattern: {
+                        value:
+                          /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+                        message: "Invalid email address",
+                      },
+                    })}
+                  />
+                  {errors.email && (
+                    <p className="text-red-500">{errors.email.message}</p>
+                  )}
+                </div>
+              </div>
+              <div className="mt-4">
+                <div className="flex flex-col">
+                  <textarea
+                    className="border-gray-600 placeholder:text-md placeholder:text-base mb-2  p-2 border-b-2 text-white border focus:border-[#f2849e]"
                     name="message"
-                    id="message"
                     placeholder="Message"
                     rows="4"
+                    {...register("message", {
+                      required: "Message is required",
+                    })}
                   ></textarea>
+                  {errors.message && (
+                    <p className="text-red-500">{errors.message.message}</p>
+                  )}
                 </div>
               </div>
             </div>
-            <input type="submit" value="Send" className=" py-2 bg-white" />
+            <input type="submit" value="Send" className="cursor-pointer py-2 bg-white" />
           </form>
+
         </div>
 
         <div className="md:w-1/2 md:mt-0 mt-10">
@@ -104,6 +147,7 @@ export const ContactUs = () => {
           </section>
         </div>
       </div>
+      <Toaster />
     </div>
   );
 };
